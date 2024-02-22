@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikroblog Platformu</title>
+</head>
+<body>
+    <header>
+        <h1>Mikroblog Platformu</h1>
+    </header>
+    <main>
+        <section>
+            <form th:action="@{/post}" method="post">
+                <label for="postContent">Gönderinizi paylaşın:</label>
+                <textarea id="postContent" name="postContent" rows="4" cols="50"></textarea>
+                <button type="submit">Paylaş</button>
+            </form>
+        </section>
+        <section id="postList">
+            <ul>
+                <li th:each="post : ${posts}" th:text="${post}"></li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
